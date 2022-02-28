@@ -1,0 +1,35 @@
+.header{
+    font-family:cursive;
+    font-style: bold;    
+    margin-top:5%;
+    text-align: center;
+    font-weight: 600;
+ }
+ .SubHeader{  
+    font-style:normal;
+    font-weight:500;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    font-size:x-large;
+    margin-top:20px;
+ }
+ .txtfield{
+     text-align: center;
+     margin-top:30px;
+ }
+ ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 150px;
+}
+.full-width{
+    width:300px;
+}
+ .link{
+    margin-top:25px;
+     margin-left: 220px;
+     background-color:#1a73e8;
+     color:white;
+ }

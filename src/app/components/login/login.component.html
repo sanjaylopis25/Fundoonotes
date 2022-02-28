@@ -1,0 +1,50 @@
+
+<div fxflex="100" fxLayout="row" fxLayoutAlign="center center" fxFlexFill >
+    <mat-card>       
+        <div>
+            <h1 class="header" >
+            <span style='color: blue;'>F</span>
+            <span style='color:red;'>u</span>
+            <span style='color:yellow'>n</span>
+            <span style='color:blue;'>d</span>
+            <span style='color:green;'>o</span>
+            <span style='color:red;'>o</span>
+            </h1>
+            <p class="SubHeader">Sign In</p>
+        </div>
+        <div class="txtfield">
+            <p>to continue to Fundoo</p>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div fxLayout="column" fxLayoutAlign="space-between center">
+            <div class="form1">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Enter Email</mat-label>
+                  <input matInput formControlName="email" placeholder="">
+                  <mat-error>Invalid Email</mat-error>                  
+                </mat-form-field>
+            </div>            
+            <div class="form2">
+                <mat-form-field class="full-width1" appearance="outline">
+                  <mat-label>Enter your Password</mat-label>
+                  <input matInput formControlName="password" placeholder="" type="password">
+                  <mat-error>Invalid Password</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="Forgot">
+            <a class="link" routerLink='/forgot' href="">Forgot Password?</a>
+        </div>       
+        <div class="checkbox1">
+            <mat-checkbox>Show Password</mat-checkbox>           
+        </div>
+        <div class="button-row">
+            <!-- <a class="sign" routerLink="/login" >Create Account</a> -->
+            <a class="link" routerLink='/signup' mat-button href="">Create Account</a>
+            <!-- <button class="register" mat-button href="" target="_blank">Create Account</button>   -->
+            <button class="signin" mat-raised-button color="primary">Log In</button>
+        </div>
+    </form>
+          
+    </mat-card>         
+    </div>

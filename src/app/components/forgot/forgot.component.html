@@ -1,0 +1,31 @@
+<div fxflex="100" fxLayout="row" fxLayoutAlign="center center" fxFlexFill >
+    <mat-card>
+        <div>
+            <h1 class="header" >
+            <span style='color: blue;'>F</span>
+            <span style='color:red;'>u</span>
+            <span style='color:yellow'>n</span>
+            <span style='color:blue;'>d</span>
+            <span style='color:green;'>o</span>
+            <span style='color:red;'>o</span>
+            </h1>
+            <p class="SubHeader">Password Recovery</p>
+        </div>
+        <div class="txtfield">
+            <p>To keep your account safe, Fundoo wants to </p>
+            <p>make sure its really you trying to sign in</p>
+        </div>
+        <form [formGroup]="forgotForm" (ngSubmit)="forgot()">
+            <div class="form1">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Enter Email</mat-label>
+                  <input matInput formControlName="fogotemail" placeholder="">
+                  <mat-error>Invalid Email</mat-error>                  
+                </mat-form-field>
+            </div>
+            
+            <a class="link" routerLink='/reset' mat-button href="">Submit</a>
+            
+        </form>
+    </mat-card> 
+</div>

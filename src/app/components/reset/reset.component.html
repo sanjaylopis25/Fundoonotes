@@ -1,0 +1,38 @@
+<div fxflex="100" fxLayout="row" fxLayoutAlign="center center" fxFlexFill >
+    <mat-card>
+        <div>
+            <h1 class="header" >
+            <span style='color: blue;'>F</span>
+            <span style='color:red;'>u</span>
+            <span style='color:yellow'>n</span>
+            <span style='color:blue;'>d</span>
+            <span style='color:green;'>o</span>
+            <span style='color:red;'>o</span>
+            </h1>
+            <p class="SubHeader">Password Reset</p>
+        </div>
+        <!-- <div class="txtfield">
+            <p>Enter new Password to recover </p>
+            <p>your account</p>
+        </div> -->
+        <form [formGroup]="resetForm" (ngSubmit)="reset()">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <mat-form-field class="full-width-password" appearance="outline">
+                  <mat-label>New Password</mat-label>
+                  <input matInput formControlName="password" placeholder="" type="password" > 
+                  <mat-error>Invalid Password</mat-error>          
+                </mat-form-field>
+                <mat-form-field class="full-width-password" appearance="outline">
+                  <mat-label>Confirm New Password</mat-label>
+                  <input matInput formControlName="cpassword" placeholder=" " type="password">  
+                  <mat-hint align="start">Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>   
+                  <mat-error>Invalid Password</mat-error>      
+                </mat-form-field>
+              </div>  
+              <div>
+                <mat-checkbox class="checkbox1">Show Password</mat-checkbox>
+              </div>     
+                <button class="submit" mat-raised-button color="primary">Submit</button>           
+        </form>
+    </mat-card> 
+</div>
