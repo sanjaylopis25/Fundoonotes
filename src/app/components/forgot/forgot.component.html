@@ -19,12 +19,12 @@
             <div class="form1">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Enter Email</mat-label>
-                  <input matInput formControlName="fogotemail" placeholder="">
+                  <input matInput formControlName="forgotemail" placeholder="">
                   <mat-error>Invalid Email</mat-error>                  
                 </mat-form-field>
             </div>
             
-            <a class="link" routerLink='/reset' mat-button href="">Submit</a>
+            <a class="link" mat-button (click)="forgot()">Submit</a>
             
         </form>
     </mat-card> 

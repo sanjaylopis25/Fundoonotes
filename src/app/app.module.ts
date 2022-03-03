@@ -14,6 +14,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import { ForgotComponent } from './components/forgot/forgot.component';
 import { ResetComponent } from './components/reset/reset.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -23,11 +32,15 @@ import { ResetComponent } from './components/reset/reset.component';
     SignupComponent,
     ForgotComponent,
     ResetComponent,
+    DashboardComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,MatFormFieldModule,MatInputModule,MatCheckboxModule,MatButtonModule,FlexLayoutModule,
-    ReactiveFormsModule,AppRoutingModule,FormsModule,MatCardModule
+    ReactiveFormsModule,AppRoutingModule,FormsModule,MatCardModule,BrowserAnimationsModule,HttpClientModule,MatToolbarModule,
+    MatSidenavModule,MatIconModule,MatDividerModule,MatListModule,MatMenuModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
