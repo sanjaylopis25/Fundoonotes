@@ -23,7 +23,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { IconsComponent } from './components/icons/icons.component';
+import { TakeNotesComponent } from './components/take-notes/take-notes.component';
+import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.component';
+import { DisplayNotesComponent } from './components/display-notes/display-notes.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -33,13 +37,17 @@ import {MatMenuModule} from '@angular/material/menu';
     ForgotComponent,
     ResetComponent,
     DashboardComponent,
+    IconsComponent,
+    TakeNotesComponent,
+    GetAllNotesComponent,
+    DisplayNotesComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,MatFormFieldModule,MatInputModule,MatCheckboxModule,MatButtonModule,FlexLayoutModule,
     ReactiveFormsModule,AppRoutingModule,FormsModule,MatCardModule,BrowserAnimationsModule,HttpClientModule,MatToolbarModule,
-    MatSidenavModule,MatIconModule,MatDividerModule,MatListModule,MatMenuModule
+    MatSidenavModule,MatIconModule,MatDividerModule,MatListModule,MatMenuModule,MatExpansionModule
     
   ],
   providers: [],

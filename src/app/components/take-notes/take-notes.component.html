@@ -1,0 +1,26 @@
+<div fxLayout="row" fxLayoutAlign="center none">
+
+    <mat-card fxLayout="column" fxLayoutAlign=" stretch" style="margin-top: 100px;">
+
+        <div  *ngIf="!writenote" (click)="takeanote()">
+            <input type="notes" class="textin" placeholder="Take a note...">
+        </div>
+<div *ngIf="writenote">
+    <div>
+        <input type="notes" [(ngModel)]="title" class="textin" placeholder="Title...">
+    </div>
+    <div>
+        <textarea matInput [(ngModel)]="description" class="text1" placeholder="Take a note..." cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="40"></textarea>   
+    </div>        
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+                <app-icons></app-icons>
+            </div>
+            <div>
+                <a class="link" mat-button (click)="close()">Close</a>
+            </div>
+        </div>
+    </div>
+</mat-card>
+</div>

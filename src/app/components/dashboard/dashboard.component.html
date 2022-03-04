@@ -118,6 +118,7 @@
             <button mat-button class="searchimg"><img src="../../../assets/outline_search_black_24dp.png" style="width:25px; height: 25px;opacity: 60%;" />
             </button>
             
+            
         </div>
         <div class="elementsContainer">
             <input type="text" placeholder="Search"
@@ -138,6 +139,14 @@
         <button mat-button class="settings" ><img src="../../../assets/outline_settings_black_24dp.png" width="25px" height="25px"/>
         </button> 
     </div>
+    <div>  
+      <button mat-button class="settings" ><img src="../../../assets/outline_apps_black_24dp.png" width="25px" height="25px"/>
+      </button> 
+  </div>
+  <div>  
+    <button mat-button class="settings" ><img src="../../../assets/outline_account_circle_black_24dp.png" width="25px" height="25px"/>
+    </button> 
+</div>
     </mat-toolbar>
  
     <div fxLayout="row" fxLayoutAlign="start"> 
@@ -176,11 +185,11 @@
         
 <div>
     <mat-sidenav-container 
-    class="example-sidenav-container" style="border: 1px solid green;"
+    class="example-sidenav-container" style="border: 1px solid white"
     [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
 
       
-    <mat-sidenav style="border: 1px solid red; width: 200px;"
+    <mat-sidenav style="border: 1px solid white; width: 200px;"
     #snav 
     [mode]="mobileQuery.matches ? 'over' : 'side'"
     [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"
@@ -193,21 +202,28 @@
         <a class="link" mat-list-item routerLink=".">Edit Labels</a>
         <a class="link" mat-list-item routerLink=".">Archive</a>
         <a class="link" mat-list-item routerLink=".">Trash</a>
-          <!-- <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a> -->
+        
       </mat-nav-list>
       </mat-sidenav>
       
         
       
       <mat-sidenav-content style="overflow:hidden;">
-        <router-outlet></router-outlet>
-        <p *ngFor="let content of fillerContent"></p>
+        <!-- <router-outlet></router-outlet> -->
+       <div fxLayout="column" fxLayoutAlign="space-between ">
+         <div>
+          <app-take-notes></app-take-notes>
+         </div>
+         <app-get-all-notes></app-get-all-notes>
+         <!-- <div>
+        <app-display-notes></app-display-notes>
+      </div> -->
+       </div> 
         
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>
 </div>
-
-  </div>
+</div>
   
   
