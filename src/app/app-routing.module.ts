@@ -6,19 +6,31 @@ import { ForgotComponent } from './components/forgot/forgot.component';
 import { ResetComponent } from './components/reset/reset.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TakeNotesComponent } from './components/take-notes/take-notes.component';
+import { AuthGuard } from './authguard/auth.guard';
+import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.component';
+import { DisplayNotesComponent } from './components/display-notes/display-notes.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.component';
 
 const routes: Routes = [
-  // {path:'',redirectTo:'login',pathMatch:'full'},
+  {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path:'forgot',component:ForgotComponent},
-  {path:'dashboard',component:DashboardComponent},
+  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],children:[
+    { path: '', redirectTo: "notes", pathMatch: "full" },
+    { path: 'notes',component:GetAllNotesComponent},
+    { path: 'display',component:DisplayNotesComponent},
+    { path: 'archive-notes',component:ArchiveNotesComponent}
+  ]},
   {path: 'resetpassword/:token',component: ResetComponent},
-  {path:'take-notes',component: TakeNotesComponent}
+  
+  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),BrowserModule,ReactiveFormsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

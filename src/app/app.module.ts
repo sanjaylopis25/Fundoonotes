@@ -28,6 +28,10 @@ import { TakeNotesComponent } from './components/take-notes/take-notes.component
 import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.component';
 import { DisplayNotesComponent } from './components/display-notes/display-notes.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { AuthService } from './services/authservice/auth.service';
+import { EditdialogComponent } from './components/editdialog/editdialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.component';
 
 @NgModule({
   declarations: [
@@ -41,16 +45,18 @@ import {MatExpansionModule} from '@angular/material/expansion';
     TakeNotesComponent,
     GetAllNotesComponent,
     DisplayNotesComponent,
+    EditdialogComponent,
+    ArchiveNotesComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,MatFormFieldModule,MatInputModule,MatCheckboxModule,MatButtonModule,FlexLayoutModule,
     ReactiveFormsModule,AppRoutingModule,FormsModule,MatCardModule,BrowserAnimationsModule,HttpClientModule,MatToolbarModule,
-    MatSidenavModule,MatIconModule,MatDividerModule,MatListModule,MatMenuModule,MatExpansionModule
+    MatSidenavModule,MatIconModule,MatDividerModule,MatListModule,MatMenuModule,MatExpansionModule,MatDialogModule
     
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

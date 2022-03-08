@@ -36,7 +36,7 @@ token:any;
       })
     }
     console.log("forgot called")
-    return this.httpService.postService('/user/reset',data,false,header)
+    return this.httpService.postService('user/reset',data,false,header)
   }
   reset(data:any,token:any) {
     let header={
@@ -46,6 +46,8 @@ token:any;
       })
     }
     console.log("reset called")
-    return this.httpService.postService('/user/reset-password',data,true,header)
+    return this.httpService.postService('user/reset-password',data,true,header)
   }
+  
+  
 }

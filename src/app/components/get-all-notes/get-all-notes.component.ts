@@ -1,16 +1,5 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NotesService } from 'src/app/services/noteService/notes.service';
-
-export class getNotesList {
-  constructor(
-    public title: any,
-    public description:any
-  ){}   
-  }
-  
- 
-
-
 
 @Component({
   selector: 'app-get-all-notes',
@@ -18,11 +7,26 @@ export class getNotesList {
   styleUrls: ['./get-all-notes.component.scss']
 })
 export class GetAllNotesComponent implements OnInit {
- @Input() data:any
+  token: any;
+  notesarray:any;
+  noteId:any
  
   constructor(private notesService:NotesService) { }
 
   ngOnInit(): void {
+    this.GetAllNotes()
+    }
+    
+  GetAllNotes(){
+    this.notesService.getnotes().subscribe((Response:any)=>{
+      this.notesarray=Response.data.data;
+      console.log(this.notesarray);
+      this.notesarray = this.notesarray.filter((data: any) => {
+        console.log(data.isDeleted)
+        return data.isDeleted === false && data.isArchived === false;
+      })
+    },(error)=>{console.log(error)});
+   
   }
 
 }

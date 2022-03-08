@@ -1,102 +1,5 @@
-<!-- <div>
-<div>
-<mat-toolbar>
-    <button mat-button (click)="drawer.toggle()">
-        <mat-icon class="menu" aria-hidden="false" aria-label="Example home icon" >menu</mat-icon>
-    </button>
-    <img src="../../../assets/keeps.png" width="35px" height="35px" />
-    
-    <div>
-        <h1 class="header" >
-        <span style='color: blue;'>F</span>
-        <span style='color:red;'>u</span>
-        <span style='color:yellow'>n</span>
-        <span style='color:blue;'>d</span>
-        <span style='color:green;'>o</span>
-        <span style='color:red;'>o</span>
-        </h1>        
-    </div>
-    <div class="boxContainer" fxLayout="row" fxLayoutAlign="start center" fxfill>
-        <div>
-            <button mat-button class="searchimg"><img src="../../../assets/outline_search_black_24dp.png" style="width:25px; height: 25px;opacity: 60%;" />
-            </button>
-        </div>
-        <div class="elementsContainer">
-            <input type="text" placeholder="Search"
-            class="search">
-        </div>                     
-    </div>
-    
-    <div>  
-        <button mat-button class="refresh" ><img src="../../../assets/outline_refresh_black_24dp.png" width="25px" height="25px"/>
-        </button> 
-    </div> 
-    <div>  
-        <button mat-button class="view" ><img src="../../../assets/outline_view_stream_black_24dp.png" width="25px" height="25px"/>
-        </button> 
-    </div> 
-    <div>  
-        <button mat-button class="settings" ><img src="../../../assets/outline_settings_black_24dp.png" width="25px" height="25px"/>
-        </button> 
-    </div>    
-</mat-toolbar>
-</div>
-<div>
-<mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-    <div fxLayout="column" fxLayoutAlign="start stretch" >
-        <div class="Forgot">
-            <a class="link"  mat-button>Notes</a>
-        </div> 
-        <div class="Forgot">
-            <a class="link"  mat-button>Reminders</a>
-        </div> 
-        <div class="Forgot">
-            <a class="link"  mat-button>Edit Labels</a>
-        </div> 
-        <div class="Forgot">
-            <a class="link"  mat-button>Archive</a>
-        </div> 
-        <div class="Forgot">
-            <a class="link"  mat-button>Trash</a>
-        </div>
-    </div>       
-    </mat-drawer>
-  
-    <div class="example-sidenav-content">
-      <button type="button" class="icons" mat-button (click)="drawer.toggle()">
-        <img class="img" src="../../../assets/outline_lightbulb_black_24dp.png"  width="25px" height="25px" />
-      </button>
-    </div>
-    <div class="example-sidenav-content">
-        <button type="button" class="icons" mat-button (click)="drawer.toggle()">
-          <img class="img" src="../../../assets/outline_notifications_black_24dp.png" width="25px" height="25px" />
-        </button>
-      </div>
-      <div class="example-sidenav-content">
-        <button type="button" class="icons" mat-button (click)="drawer.toggle()">
-          <img class="img" src="../../../assets/outline_edit_black_24dp.png" width="25px" height="25px" />
-        </button>
-      </div>
-      <div class="example-sidenav-content">
-        <button type="button" class="icons" mat-button (click)="drawer.toggle()">
-          <img class="img" src="../../../assets/outline_archive_black_24dp.png" width="25px" height="25px" />
-        </button>
-      </div>
-      <div class="example-sidenav-content">
-        <button type="button" class="icons" mat-button (click)="drawer.toggle()">
-          <img class="img" src="../../../assets/outline_delete_black_24dp.png" width="25px" height="25px" />
-        </button>
-      </div>
-  
-  </mat-drawer-container> 
-  
-</div>
-</div>
-   -->
-
    <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-    <mat-toolbar color="white" class="example-toolbar" >
+    <mat-toolbar color="white" class="example-toolbar" style="border-bottom: 0.5px inset;" >
       <div class="togglemenu">
         <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
       </div>
@@ -113,7 +16,7 @@
         <span style='color:red;'>o</span>
         </h1>        
     </div>
-    <div class="boxContainer" fxLayout="row" fxLayoutAlign="start center" fxfill>
+    <mat-card class="boxContainer" fxLayout="row" fxLayoutAlign="start center" fxfill>
         <div>
             <button mat-button class="searchimg"><img src="../../../assets/outline_search_black_24dp.png" style="width:25px; height: 25px;opacity: 60%;" />
             </button>
@@ -125,7 +28,7 @@
             class="search">
             
         </div>                     
-    </div>
+    </mat-card>
     
     <div>  
         <button mat-button class="refresh" ><img src="../../../assets/outline_refresh_black_24dp.png" width="25px" height="25px"/>
@@ -185,40 +88,31 @@
         
 <div>
     <mat-sidenav-container 
-    class="example-sidenav-container" style="border: 1px solid white"
+    class="example-sidenav-container" style=" background-color: white;"
     [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
 
       
-    <mat-sidenav style="border: 1px solid white; width: 200px;"
+    <mat-sidenav style=" width: 200px;"
     #snav 
     [mode]="mobileQuery.matches ? 'over' : 'side'"
     [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"
-    >
-        
+    >       
       <mat-nav-list >
-        
-        <a class="link" mat-list-item routerLink="." style="text-align: center;">Notes</a>
+       
+        <a class="link" mat-list-item routerLink=".">Notes</a>
         <a class="link" mat-list-item routerLink=".">Reminders</a>
         <a class="link" mat-list-item routerLink=".">Edit Labels</a>
-        <a class="link" mat-list-item routerLink=".">Archive</a>
+        <a class="link" mat-list-item routerLink="." (click)="Archive()">Archive</a>
         <a class="link" mat-list-item routerLink=".">Trash</a>
-        
+          
       </mat-nav-list>
       </mat-sidenav>
       
         
       
-      <mat-sidenav-content style="overflow:hidden;">
-        <!-- <router-outlet></router-outlet> -->
-       <div fxLayout="column" fxLayoutAlign="space-between ">
-         <div>
-          <app-take-notes></app-take-notes>
-         </div>
-         <app-get-all-notes></app-get-all-notes>
-         <!-- <div>
-        <app-display-notes></app-display-notes>
-      </div> -->
-       </div> 
+      <mat-sidenav-content class="content" style="overflow:hidden;" fxLayout.gt-lg="row">
+        <router-outlet></router-outlet>
+       
         
       </mat-sidenav-content>
     </mat-sidenav-container>

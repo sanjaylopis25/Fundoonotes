@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class NotesService {
+  noteId:any
   token:any
   constructor(private httpService:HttpService) { 
     this.token= localStorage.getItem("token")
@@ -18,17 +19,59 @@ takenotes(data:any){
        'Authorization': this.token
       })
    }
-    console.log("signup called in user service");
+    console.log("take Notes called");
     return this.httpService.postService('notes/addNotes',data,true,header)
   }
-getnotes(data:any){
+getnotes() {
+  let header={
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':this.token
+    })
+  }
+  console.log("Get Notes called")
+  return this.httpService.getService('notes/getNotesList',header)
+}
+editnotes(data:any){
   let header = {
     headers: new HttpHeaders({
      'Content-Type': 'application/json',
      'Authorization': this.token
     })
  }
- console.log("signup called in user service");
-  return this.httpService.getService()
+  console.log("update Notes called");
+  return this.httpService.postService('notes/updateNotes',data,true,header)
 }
+delete(data: any){
+  let header={
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':this.token
+    })
+  }
+  console.log("delete note called")
+  return this.httpService.postService('notes/trashNotes',data,true,header)
+}
+archive(data: any){
+  let header={
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':this.token
+    })
+  }
+  console.log("archive note called")
+  return this.httpService.postService('notes/archiveNotes',data,true,header)
+}
+getarchivenotes() {
+  let header={
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':this.token
+    })
+  }
+  console.log("Get Notes called")
+  return this.httpService.getService('notes/getArchiveNotesList',header)
+}
+
+
 }

@@ -1,4 +1,42 @@
-<mat-card style="margin-top: 50px; width: 100px;">
-    
-    <app-icons></app-icons>
-</mat-card>
+<div class="content" >
+    <div style="margin-top: 100px; margin-left: 80px;">
+    <div fxLayout="row wrap" >
+       
+        <div fxFlex="33.3333%" fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let note of allnotes" >
+            <mat-card style="width:250px; height:100px; margin-bottom: 40px;">
+            <div (click)="openDialog(note)">
+                <div>
+                    <strong>{{note.title}}</strong>
+                </div>
+                    <div>{{note.description}}</div>
+            </div>
+                <div>
+                    <app-icons [iconnote]="note"></app-icons>
+                </div>
+            
+            </mat-card>
+
+        </div>
+       
+    </div>
+</div>
+</div>
+
+
+
+
+
+<!-- <div class="top" *ngFor="let note of allnotes" fxLayout="start" fxFlex="25%">
+    <mat-card fxFlexFill fxLayout="column">
+        <div>
+            <strong>{{note.title}}</strong>
+        </div>
+        <div>{{note.description}}</div>
+        <div>
+            <app-icons class="icons"></app-icons>
+        </div>
+    </mat-card>
+</div> -->
+
+
+

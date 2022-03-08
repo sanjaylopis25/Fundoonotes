@@ -1,32 +1,24 @@
-<div fxLayout="row" fxLayoutAlign="start none">
-    <div>
-        <button type="button" class="icons" mat-button>
-            <img class="img" src="../../../assets/outline_add_alert_black_24dp.png" width="15px" height="15px" />
-        </button>
+<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px" >
+    <div  style="width:15px; height:15px;">
+        <button mat-icon-button><img src="../../../assets/outline_add_alert_black_24dp.png" style="width:15px; height:15px;"></button>
+        
     </div>
-    <div>
-        <button type="button" class="icons" mat-button>
-            <img class="img" src="../../../assets/outline_person_add_alt_black_24dp.png" width="15px" height="15px" />
-        </button>
+    <div  style="width:15px; height:15px;">
+        <button mat-icon-button><img src="../../../assets/outline_person_add_alt_black_24dp.png" style="width:15px; height:15px;"></button>
     </div>
-    <div>
-        <button type="button" class="icons" mat-button>
-            <img class="img" src="../../../assets/outline_palette_black_24dp.png" width="15px" height="15px" />
-        </button>
+    <div style="width:15px; height:15px;">      
+        <button mat-icon-button><img src="../../../assets/outline_palette_black_24dp.png" style="width:15px; height:15px;"></button>
     </div>
-    <div>
-        <button type="button" class="icons" mat-button>
-            <img class="img" src="../../../assets/outline_image_black_24dp.png" width="15px" height="15px" />
-        </button>
+    <div style="width:15px; height:15px;">      
+        <button mat-icon-button><img src="../../../assets/outline_image_black_24dp.png" style="width:15px; height:15px;"></button>
     </div>
-    <div>
-        <button type="button" class="icons" mat-button>
-            <img class="img" src="../../../assets/1x outline_archive_black_24dp.png" width="15px" height="15px" />
-        </button>
+    <div style="width:15px; height:15px;">
+        <button mat-icon-button (click)="archivenote()"><img src="../../../assets/1x outline_archive_black_24dp.png" style="width:15px; height:15px;"></button>
     </div>
-    <div>
-        <button type="button" class="icons" mat-button>
-            <img class="img" src="../../../assets/outline_more_vert_black_24dp.png" width="15px" height="15px" />
-        </button>
+    <div  style="width:15px; height:15px;">
+        <button mat-icon-button [matMenuTriggerFor]="menu"><img src="../../../assets/outline_more_vert_black_24dp.png" style="width:15px; height:15px;"></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="deletenote()">Delete Note</button>
+          </mat-menu>
     </div>
 </div>
