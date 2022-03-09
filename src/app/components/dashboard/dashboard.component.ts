@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { Router } from '@angular/router';
+import { NotesService } from 'src/app/services/noteService/notes.service';
 
 
 @Component({
@@ -11,10 +12,11 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
   mobileQuery: MediaQueryList;
   isShow = false;
+  public searchTerm:string='';
   
 
   private _mobileQueryListener: () => void;
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private router:Router) { 
+  constructor(private noteService:NotesService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private router:Router) { 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -25,6 +27,18 @@ export class DashboardComponent implements OnInit {
   }
   Archive(){
     this.router.navigateByUrl('dashboard/archive-notes')
+  }
+  Trash(){
+    this.router.navigateByUrl('dashboard/trash-notes') 
+  }
+  search(event:any){
+    this.searchTerm=(event.target as HTMLInputElement).value; 
+    console.log(this.searchTerm)
+    this.noteService.search.next(this.searchTerm);
+  }
+  logout() {    
+    localStorage.removeItem('token')
+    this.router.navigateByUrl('login');
   }
 }
 

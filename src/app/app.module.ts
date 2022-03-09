@@ -32,6 +32,8 @@ import { AuthService } from './services/authservice/auth.service';
 import { EditdialogComponent } from './components/editdialog/editdialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.component';
+import { TrashNotesComponent } from './components/trash-notes/trash-notes.component';
+import { NotesFilterPipe } from './notes-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.
     DisplayNotesComponent,
     EditdialogComponent,
     ArchiveNotesComponent,
+    TrashNotesComponent,
+    NotesFilterPipe,
     
   ],
   imports: [

@@ -9,7 +9,7 @@ import { NotesService } from 'src/app/services/noteService/notes.service';
   styleUrls: ['./take-notes.component.scss']
 })
 export class TakeNotesComponent implements OnInit {
-  @Output() autorefreshEvent = new EventEmitter<string>();
+  @Output() createNoteToRefresh= new EventEmitter<any>();
   title: any;
   description: any;
   submitted = false;
@@ -36,6 +36,8 @@ export class TakeNotesComponent implements OnInit {
     if (this.title && this.description) {
       this.notesService.takenotes(reqData).subscribe((Response: any) => {
         console.log(Response);
+        
+        this.createNoteToRefresh.emit(Response)
         localStorage.setItem("token", Response.id)
       }, error => { console.log(error); })
     }

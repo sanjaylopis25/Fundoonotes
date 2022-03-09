@@ -25,7 +25,7 @@
         </div>
         <div class="elementsContainer">
             <input type="text" placeholder="Search"
-            class="search">
+            class="search" [(ngModel)]="searchTerm" (keyUp)="search($event)"/>
             
         </div>                     
     </mat-card>
@@ -47,8 +47,11 @@
       </button> 
   </div>
   <div>  
-    <button mat-button class="settings" ><img src="../../../assets/outline_account_circle_black_24dp.png" width="25px" height="25px"/>
+    <button mat-button class="settings" [matMenuTriggerFor]="menu2" ><img src="../../../assets/outline_account_circle_black_24dp.png" width="25px" height="25px"/>
     </button> 
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item (click)="logout()">Log Out</button>
+    </mat-menu>
 </div>
     </mat-toolbar>
  
@@ -103,7 +106,7 @@
         <a class="link" mat-list-item routerLink=".">Reminders</a>
         <a class="link" mat-list-item routerLink=".">Edit Labels</a>
         <a class="link" mat-list-item routerLink="." (click)="Archive()">Archive</a>
-        <a class="link" mat-list-item routerLink=".">Trash</a>
+        <a class="link" mat-list-item routerLink="."(click)="Trash()">Trash</a>
           
       </mat-nav-list>
       </mat-sidenav>

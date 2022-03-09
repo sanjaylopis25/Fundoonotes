@@ -1,24 +1,49 @@
-<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px" >
+<div *ngIf="!isTrashNotesComponent" fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="25px" style="margin-top: 30px;" >
     <div  style="width:15px; height:15px;">
-        <button mat-icon-button><img src="../../../assets/outline_add_alert_black_24dp.png" style="width:15px; height:15px;"></button>
+        <button class="icons" mat-icon-button><img src="../../../assets/outline_add_alert_black_24dp.png" style="width:20px; height:20px;"></button>
         
     </div>
     <div  style="width:15px; height:15px;">
-        <button mat-icon-button><img src="../../../assets/outline_person_add_alt_black_24dp.png" style="width:15px; height:15px;"></button>
+        <button class="icons" mat-icon-button><img src="../../../assets/outline_person_add_alt_black_24dp.png" style="width:20px; height:20px;"></button>
     </div>
     <div style="width:15px; height:15px;">      
-        <button mat-icon-button><img src="../../../assets/outline_palette_black_24dp.png" style="width:15px; height:15px;"></button>
-    </div>
-    <div style="width:15px; height:15px;">      
-        <button mat-icon-button><img src="../../../assets/outline_image_black_24dp.png" style="width:15px; height:15px;"></button>
-    </div>
-    <div style="width:15px; height:15px;">
-        <button mat-icon-button (click)="archivenote()"><img src="../../../assets/1x outline_archive_black_24dp.png" style="width:15px; height:15px;"></button>
-    </div>
-    <div  style="width:15px; height:15px;">
-        <button mat-icon-button [matMenuTriggerFor]="menu"><img src="../../../assets/outline_more_vert_black_24dp.png" style="width:15px; height:15px;"></button>
+        <button mat-icon-button [matMenuTriggerFor]="menu"><img src="../../../assets/outline_palette_black_24dp.png" style="width:20px; height:20px;"></button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="deletenote()">Delete Note</button>
+            <div fxLayout="row" fxLayoutAlign="start none" fxLayoutGap="10px">
+                <button class="icons" *ngFor="let noteColor of colors" mat-mini-fab [style.background]="noteColor?.bgColorValue"
+            (click)="changeColor(noteColor?.bgColorValue)"></button>
+            
+            </div>  
+        </mat-menu>
+    </div>
+    <div style="width:15px; height:15px;">      
+        <button class="icons" mat-icon-button><img src="../../../assets/outline_image_black_24dp.png" style="width:20px; height:20px;"></button>
+    </div>
+    <div *ngIf="!isArchiveNotesComponent" style="width:15px; height:15px;">
+        <button class="icons" mat-icon-button  (click)="archivenote()"><img src="../../../assets/1x outline_archive_black_24dp.png" style="width:20px; height:20px;"></button>
+    </div>
+    <div *ngIf="isArchiveNotesComponent"  style="width:15px; height:15px;">
+        <button  class="icons" mat-icon-button (click)="unarchivenote()"><img src="../../../assets/outline_unarchive_black_24dp.png" style="width:20px; height:20px;"></button>
+    </div>
+    <div  style="width:15px; height:15px; margin-left: 30px;">
+        <button class="icons" mat-icon-button [matMenuTriggerFor]="menu1"><img src="../../../assets/outline_more_vert_black_24dp.png" style="width:20px; height:20px;"></button>
+        <mat-menu #menu1="matMenu">
+            <button class="icons" mat-menu-item (click)="deletenote()">Delete Note</button>
           </mat-menu>
     </div>
 </div>
+
+
+<div *ngIf="isTrashNotesComponent" fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="25px" style="margin-top: 30px;" >
+    <div  style="width:15px; height:15px;">
+        <button class="icons2" mat-icon-button (click)="deleteforever()"><img src="../../../assets/outline_delete_forever_black_24dp.png" style="width:20px; height:20px;"></button>      
+    </div>
+    <div  style="width:15px; height:15px;">
+        <button class="icons2" mat-icon-button (click)="restorenote()"><img src="../../../assets/outline_restore_from_trash_black_24dp.png" style="width:20px; height:20px;"></button>      
+    </div>
+</div>
+
+
+
+
+

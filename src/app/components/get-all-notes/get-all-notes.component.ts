@@ -10,7 +10,8 @@ export class GetAllNotesComponent implements OnInit {
   token: any;
   notesarray:any;
   noteId:any
- 
+  
+  
   constructor(private notesService:NotesService) { }
 
   ngOnInit(): void {
@@ -20,6 +21,7 @@ export class GetAllNotesComponent implements OnInit {
   GetAllNotes(){
     this.notesService.getnotes().subscribe((Response:any)=>{
       this.notesarray=Response.data.data;
+      this.notesarray.reverse();
       console.log(this.notesarray);
       this.notesarray = this.notesarray.filter((data: any) => {
         console.log(data.isDeleted)
@@ -28,5 +30,11 @@ export class GetAllNotesComponent implements OnInit {
     },(error)=>{console.log(error)});
    
   }
+  autoRefresh(data:any)
+  {
+     console.log("refreshed",data);
+     this.GetAllNotes();
+  }
+ 
 
 }

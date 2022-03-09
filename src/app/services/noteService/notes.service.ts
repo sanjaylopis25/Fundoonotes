@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../httpServices/http.service';
 import { HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class NotesService {
   noteId:any
   token:any
+  public search =new BehaviorSubject<string>(""); 
   constructor(private httpService:HttpService) { 
     this.token= localStorage.getItem("token")
   }
@@ -52,6 +54,16 @@ delete(data: any){
   console.log("delete note called")
   return this.httpService.postService('notes/trashNotes',data,true,header)
 }
+deleteperm(data: any){
+  let header={
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':this.token
+    })
+  }
+  console.log("delete note called")
+  return this.httpService.postService('notes/deleteForeverNotes',data,true,header)
+}
 archive(data: any){
   let header={
     headers: new HttpHeaders({
@@ -72,6 +84,24 @@ getarchivenotes() {
   console.log("Get Notes called")
   return this.httpService.getService('notes/getArchiveNotesList',header)
 }
+gettrashnotes() {
+  let header={
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':this.token
+    })
+  }
+  console.log("Get Notes called")
+  return this.httpService.getService('notes/getTrashNotesList',header)
+}
+usercolor(data:any){ 
 
-
+  let header= {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':this.token
+    })
+  }
+  return this.httpService.postService('notes/changesColorNotes',data,true,header)
+ }
 }

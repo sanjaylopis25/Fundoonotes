@@ -11,14 +11,18 @@ import { EditdialogComponent } from '../editdialog/editdialog.component';
 })
 export class DisplayNotesComponent implements OnInit {
   @Input() allnotes : any;
-  
+  searchKey:string="";
   title:any
   description:any
   
   constructor(private note:NotesService, private dialog: MatDialog ) { }
 
   ngOnInit(): void {
+    this.note.search.subscribe((val:any)=>{
+      this.searchKey=val;
+    })
   }
+
   openDialog(note:any) {
     const dialogRef = this.dialog.open(EditdialogComponent, {
       width: '600px',
@@ -31,5 +35,7 @@ export class DisplayNotesComponent implements OnInit {
       
     });
   }
-
+  palette(data:any){  
+    console.log(data);   
+  }
 }

@@ -12,6 +12,7 @@ import { DisplayNotesComponent } from './components/display-notes/display-notes.
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.component';
+import { TrashNotesComponent } from './components/trash-notes/trash-notes.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
@@ -22,7 +23,8 @@ const routes: Routes = [
     { path: '', redirectTo: "notes", pathMatch: "full" },
     { path: 'notes',component:GetAllNotesComponent},
     { path: 'display',component:DisplayNotesComponent},
-    { path: 'archive-notes',component:ArchiveNotesComponent}
+    { path: 'archive-notes',component:ArchiveNotesComponent},
+    { path: 'trash-notes',component:TrashNotesComponent}
   ]},
   {path: 'resetpassword/:token',component: ResetComponent},
   
