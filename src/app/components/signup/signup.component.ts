@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/userService/user.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-
+  public showPassword: boolean = false;
   registerForm! : FormGroup;
   submitted=false;
 
@@ -46,5 +46,8 @@ export class SignupComponent implements OnInit {
       return;
     }
     
+  }
+  public checkboxPassword(): void {
+    this.showPassword = !this.showPassword;
   }
 }

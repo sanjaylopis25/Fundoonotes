@@ -10,26 +10,26 @@ import { AuthService } from 'src/app/services/authservice/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  public showPassword: boolean = false;
   loginForm! : FormGroup;
   submitted=false;
   user='1';
 
   constructor(private formBuilder:FormBuilder, private userService:UserService, private router:Router, private authService:AuthService) {  }
-
+  canActivate(): boolean {
+    if (!this.authService.loggedIn()) {
+      this.router.navigateByUrl("/login");
+    }
+    return this.authService.loggedIn();
+  }
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
-    localStorage.setItem("SeesionUser",this.user)
+     localStorage.setItem("token", this.user)
   }
-  canActivate(): boolean {  
-    if (!this.authService.loggedIn()) {  
-        this.router.navigateByUrl("/login");  
-    }  
-    return this.authService.loggedIn();  
-}  
+  
 
 login(){
   if(this.loginForm.valid){
@@ -51,5 +51,8 @@ login(){
   else
   console.log("form is not valid fill form correctly")
   return;
+}
+public checkboxPassword(): void {
+  this.showPassword = !this.showPassword;
 }
 }

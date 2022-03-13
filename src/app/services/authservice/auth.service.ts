@@ -8,6 +8,7 @@ export class AuthService {
   constructor() { }
   
   loggedIn(){
-    return !!localStorage.getItem('SessionUser')
+    console.log("called")
+    return !!localStorage.getItem("token")
   }
 }

@@ -1,5 +1,5 @@
-<div fxflex="100" fxLayout="row" fxLayoutAlign="center center" fxFlexFill >
-    <mat-card>
+<div fxflex="100" fxLayout="row" fxLayoutAlign="center center" fxFlexFill fxLayout.xs="column" fxLayoutAlign.xs="start stretch"  >
+    <mat-card fxFlex.xs="Fill">
         <div>
             <h1 class="header" >
             <span style='color: blue;'>F</span>
@@ -11,10 +11,6 @@
             </h1>
             <p class="SubHeader">Password Reset</p>
         </div>
-        <!-- <div class="txtfield">
-            <p>Enter new Password to recover </p>
-            <p>your account</p>
-        </div> -->
         <form [formGroup]="resetForm" (ngSubmit)="reset()">
             <div fxLayout="column" fxLayoutAlign="center center">
                 <mat-form-field class="full-width-password" appearance="outline">

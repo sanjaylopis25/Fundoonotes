@@ -9,6 +9,7 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
   styleUrls: ['./editdialog.component.scss']
 })
 export class EditdialogComponent implements OnInit {
+  
   title:any
   description:any
  noteId:any
@@ -32,7 +33,8 @@ export class EditdialogComponent implements OnInit {
     if (this.title && this.description) {
       this.notesService.editnotes(reqData).subscribe((Response: any) => {
         console.log(Response);
-        localStorage.setItem("token", Response.id)
+        
+        // localStorage.setItem("token", Response.id)
       }, error => { console.log(error); })
     }
     else {

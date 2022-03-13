@@ -15,7 +15,7 @@ import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.
 import { TrashNotesComponent } from './components/trash-notes/trash-notes.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'login',pathMatch:'full'},
+  { path: '', redirectTo: "/login", pathMatch: 'full' },
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path:'forgot',component:ForgotComponent},

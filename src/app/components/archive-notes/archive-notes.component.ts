@@ -18,8 +18,9 @@ export class ArchiveNotesComponent implements OnInit {
     this.notesService.getarchivenotes().subscribe((Response:any)=>{
       this.notesarchive=Response.data.data;
       console.log(this.notesarchive);
-      })
-    
-  
+      }) 
+}
+unarchive(e:any){
+  this.GetAllArchiveNotes();
 }
 }

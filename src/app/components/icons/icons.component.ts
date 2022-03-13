@@ -1,6 +1,6 @@
 import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
 import { NotesService } from 'src/app/services/noteService/notes.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ArchiveNotesComponent } from '../archive-notes/archive-notes.component';
 import { TrashNotesComponent } from '../trash-notes/trash-notes.component';
 
@@ -13,6 +13,10 @@ import { TrashNotesComponent } from '../trash-notes/trash-notes.component';
 export class IconsComponent implements OnInit {
 @Input() iconnote:any;
 @Output() changeColorOfNote = new EventEmitter<any>();
+@Output() trashNoteToRefresh= new EventEmitter<any>();
+@Output() archiveNoteToRefresh= new EventEmitter<any>();
+
+
 isArchiveNotesComponent=false;
 isTrashNotesComponent=false;
   constructor(private notesService: NotesService, private router:ActivatedRoute) { }
@@ -37,8 +41,9 @@ isTrashNotesComponent=false;
     }
     this.notesService.delete(reqdata).subscribe((response: any) => {
       console.log(response);
+      this.trashNoteToRefresh.emit(Response)
     })
-    window.location.reload();
+    
   }
   restorenote(){
     let reqdata = {
@@ -47,8 +52,9 @@ isTrashNotesComponent=false;
     }
     this.notesService.delete(reqdata).subscribe((response: any) => {
       console.log(response);
+      this.changeColorOfNote.emit(response)
     })
-    window.location.reload();
+    
   }
   deleteforever(){
     let reqdata = {
@@ -57,8 +63,9 @@ isTrashNotesComponent=false;
     }
     this.notesService.deleteperm(reqdata).subscribe((response: any) => {
       console.log(response);
+      this.changeColorOfNote.emit(response)
     })
-    window.location.reload();
+    
   }
   archivenote(){
     let reqdata = {
@@ -67,8 +74,8 @@ isTrashNotesComponent=false;
     }
     this.notesService.archive(reqdata).subscribe((response: any) => {
       console.log(response);
+      this.archiveNoteToRefresh.emit(Response)
     })
-    window.location.reload();
   }
   colors = [{bgColorValue:'#fff'},
   {bgColorValue:'#f28b82'},
@@ -95,11 +102,11 @@ isTrashNotesComponent=false;
     this.notesService.usercolor(reqdata).subscribe((response:any) =>{
       console.log(response);
 
-      this.changeColorOfNote.emit(noteColor)
+     this.changeColorOfNote.emit(noteColor)
       
 
     })
-    window.location.reload();
+    
   }
   unarchivenote(){
     let reqdata = {
@@ -108,7 +115,8 @@ isTrashNotesComponent=false;
     }
     this.notesService.archive(reqdata).subscribe((response: any) => {
       console.log(response);
+      this.changeColorOfNote.emit(response)
     })
-    window.location.reload();
+   
   }
 }

@@ -38,7 +38,7 @@ export class TakeNotesComponent implements OnInit {
         console.log(Response);
         
         this.createNoteToRefresh.emit(Response)
-        localStorage.setItem("token", Response.id)
+        // localStorage.setItem("token", Response.id)
       }, error => { console.log(error); })
     }
     else {

@@ -34,6 +34,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ArchiveNotesComponent } from './components/archive-notes/archive-notes.component';
 import { TrashNotesComponent } from './components/trash-notes/trash-notes.component';
 import { NotesFilterPipe } from './notes-filter.pipe';
+import { SearchFilterPipe } from './pipe/search-pipe/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { NotesFilterPipe } from './notes-filter.pipe';
     ArchiveNotesComponent,
     TrashNotesComponent,
     NotesFilterPipe,
+    SearchFilterPipe,
     
   ],
   imports: [

@@ -1,7 +1,6 @@
-
-<div fxflex="100" fxLayout="row" fxLayoutAlign="center center" fxFlexFill >
-  <mat-card>
-    <div fxLayout="row" fxLayoutAlign="center center" fxFlexFill>
+<div fxflex="100" fxLayout="row" fxLayoutAlign="center center" fxFlexFill  fxLayout.xs="column" fxLayoutAlign.xs="start stretch" >
+  <mat-card fxFlex.xs="Fill">
+    <div fxLayout="row" fxLayoutAlign="center center" fxFlexFill  fxLayout.xs="column" fxLayoutAlign.xs="start stretch" >
      <div> 
       <div>
         <h1 class="header" >
@@ -38,20 +37,20 @@
       </div>
           
       <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
-        <mat-form-field class="full-width-password" appearance="outline">
+        <mat-form-field  class="full-width-password" appearance="outline">
           <mat-label>Password</mat-label>
-          <input matInput formControlName="password" placeholder="" type="password" > 
+          <input [type]="showPassword ? 'text' : 'password'" matInput formControlName="password" placeholder="" type="password" > 
           <mat-hint align="start">Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint> 
           <mat-error>Invalid Password</mat-error>          
         </mat-form-field>
         <mat-form-field class="full-width-password" appearance="outline">
           <mat-label>Confirm</mat-label>
-          <input matInput formControlName="cpassword" placeholder=" " type="password">    
+          <input [type]="showPassword ? 'text' : 'password'" matInput formControlName="cpassword" placeholder=" " type="password">    
           <mat-error>Invalid Password</mat-error>      
         </mat-form-field>
       </div>
           <div>
-            <mat-checkbox class="checkbox1">Show Password</mat-checkbox>
+            <mat-checkbox  matSuffix (click)="checkboxPassword()" class="checkbox1">Show Password</mat-checkbox>
           </div>
           <div class="buttons1">
             <a class="link" routerLink='/login' mat-button href="">Sign in instead</a>
@@ -59,7 +58,7 @@
           </div> 
         </form>
       </div>
-        <div class="image">
+        <div class="image" fxHide.xs="true">
           <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg"  >
           <p>One account. All of Fundoo Notes working for you.</p>
       </div>

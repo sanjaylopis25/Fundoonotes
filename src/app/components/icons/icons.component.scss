@@ -7,3 +7,6 @@
 .palette{
     flex-flow: row wrap; 
 }
+::ng-deep.mat-menu-panel {
+    max-width: none !important;
+  }

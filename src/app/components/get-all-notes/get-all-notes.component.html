@@ -1,3 +1,3 @@
-<app-take-notes  (createNoteToRefresh)="autoRefresh($event)"></app-take-notes>
-<app-display-notes [allnotes] ="notesarray" ></app-display-notes>
+<app-take-notes (createNoteToRefresh)="autoRefresh($event)"></app-take-notes>
+<app-display-notes [allnotes] ="notesarray" (updateNoteToRefresh)="autoRefresh2($event)" (changeColorOfNote)="colorrefresh($event)" (trashNoteToRefresh)="trash($event)"  (archiveNoteToRefresh)="archiverefresh($event)" ></app-display-notes>
 

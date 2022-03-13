@@ -1,23 +1,23 @@
 <div class="content" >
     <div style="margin-top: 100px; margin-left: 80px;">
-    <div fxLayout="row wrap" >
-       
-        <div fxFlex="33.3333%" fxFlex.xs="100%" fxFlex.sm="50%"  *ngFor="let note of allnotes | notesFilter:searchKey:'title'" >
-            <mat-card [style.background]="note.color" class="card" style="width:250px; height:100px; margin-bottom: 40px;">
+    <div fxLayout="row wrap" fxFlex="100%" fxLayoutGap="20px grid" fxLayout.xs="column" fxFlex.xs="95%" >
+      
+        <div *ngFor='let note of allnotes | searchFilter:searchWord' >
+            <mat-card [style.background]="note.color" class="card">
             <div (click)="openDialog(note)">
                 <div>
                     <strong>{{note.title}}</strong>
                 </div>
-                    <div>{{note.description}}</div>
+                    <div style="margin-bottom: 30px;">{{note.description}}</div>
             </div>
                 <div>
-                    <app-icons (changeColorOfNote)="palette($event)" class="icons" [iconnote]="note"></app-icons>
+                    <app-icons (changeColorOfNote)="palette($event)" (trashNoteToRefresh)="trash($event)" (archiveNoteToRefresh)="archiverefresh($event)" class="icons" [iconnote]="note"></app-icons>
                 </div>
             
             </mat-card>
 
         </div>
-       
+        
     </div>
 </div>
 </div>

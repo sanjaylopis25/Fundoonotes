@@ -10,14 +10,14 @@ export class GetAllNotesComponent implements OnInit {
   token: any;
   notesarray:any;
   noteId:any
-  
-  
+
+
   constructor(private notesService:NotesService) { }
 
   ngOnInit(): void {
     this.GetAllNotes()
     }
-    
+
   GetAllNotes(){
     this.notesService.getnotes().subscribe((Response:any)=>{
       this.notesarray=Response.data.data;
@@ -28,13 +28,31 @@ export class GetAllNotesComponent implements OnInit {
         return data.isDeleted === false && data.isArchived === false;
       })
     },(error)=>{console.log(error)});
-   
+
   }
   autoRefresh(data:any)
   {
      console.log("refreshed",data);
      this.GetAllNotes();
   }
- 
-
+  autoRefresh2(data:any)
+  {
+     console.log("refreshed",data);
+     this.GetAllNotes();
+  }
+  colorrefresh(data:any)
+  {
+     console.log("refreshed",data);
+     this.GetAllNotes();
+  }
+  trash(data:any)
+  {
+     console.log("refreshed",data);
+     this.GetAllNotes();
+  }
+  archiverefresh(data:any)
+  {
+     console.log("refreshed",data);
+     this.GetAllNotes();
+  }
 }
